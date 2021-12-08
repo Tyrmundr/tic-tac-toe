@@ -4,16 +4,7 @@
 const board = document.getElementById("board");
 const cells = document.querySelectorAll("[data-cell]");
 
-let cellArray = [];
-
-const loadCells = () => {
-    cells.forEach(cell => {
-        cellArray.push(cell)
-    })   
-}
-
-
-
+//Win conditions function
 const winConditions = (() => {
    const a = [0,1,2];
    const b = [3,4,5];
@@ -27,5 +18,40 @@ const winConditions = (() => {
    return {a, b, c, d, e, f, g, h}
 })()
 
+//Function to load cells
+let cellArray = [];
 
-window.addEventListener("load", loadCells)
+const loadCells = (() => {
+    const load = () => {cells.forEach(cell => {
+        cellArray.push(cell)
+    })} 
+
+    return { load };
+})()
+
+//Adding Marks on click
+let mark;
+//Mark X
+const markX = () => {
+    cells.forEach(cell => cell.addEventListener("click", (e) => {
+        e.target.classList.add("x");
+        
+    }, {once:true}))
+}
+
+//Mark O
+const markO = () => {
+    cells.forEach(cell => cell.addEventListener("click", (e) => {
+        e.target.classList.add("o");
+        
+    }, {once:true}))
+}
+
+
+
+
+
+
+//Loading cells when window loads
+window.addEventListener("load", loadCells.load())
+
