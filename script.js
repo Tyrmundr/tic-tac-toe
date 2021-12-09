@@ -99,7 +99,7 @@ function checkWin(currentClass) {
 }
 
 
-
+/*
 //Function to load cells
 let cellArray = [];
 
@@ -136,4 +136,4 @@ const markO = () => {
 
 //Loading cells when window loads
 window.addEventListener("load", loadCells.load())
-
+*/
